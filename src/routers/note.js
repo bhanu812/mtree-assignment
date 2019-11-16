@@ -1,10 +1,10 @@
 const express = require('express')
-const note = require('../models/note')
+const Note = require('../models/note')
 const authenticate = require('../middleware/authenticate')
 const router = new express.Router()
 
 router.post('/notes', authenticate, async (req, res) => {
-    const note = new note({
+    const note = new Note({
         ...req.body,
         owner: req.user._id
     })
